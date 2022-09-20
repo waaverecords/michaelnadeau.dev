@@ -2,7 +2,7 @@ import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import { ReactNode } from 'react';
 import Link from 'next/link';
-import { FaChevronRight, FaGithub, FaTwitch, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { FaChevronRight, FaEtsy, FaGithub, FaTwitch, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { twMerge } from 'tailwind-merge';
 import dateFormat from 'dateformat';
 import { IconType } from 'react-icons';
@@ -54,7 +54,6 @@ const Home: NextPage<Props> = ({
                         className="
                             flex justify-center
                             px-3
-                            text-sm font-medium text-zinc-200
                             bg-zinc-800/90
                             rounded-full
                             ring-1 ring-white/10
@@ -121,7 +120,7 @@ const Home: NextPage<Props> = ({
                         "
                     >
                         <SocialLink
-                            href="https://twitter.com"
+                            href="https://twitter.com/waaverecords"
                             icon={FaTwitter}
                         />
                         <SocialLink
@@ -135,6 +134,10 @@ const Home: NextPage<Props> = ({
                         <SocialLink
                             href="https://www.twitch.tv/waaverecords"
                             icon={FaTwitch}
+                        />
+                        <SocialLink
+                            href="https://www.etsy.com/ca/shop/WaaveRecords"
+                            icon={FaEtsy}
                         />
                     </div>
                     <div
@@ -262,12 +265,20 @@ const Home: NextPage<Props> = ({
             >
                 <div
                     className="
-                        text-sm
-                        text-zinc-200
-                        font-medium
+                        flex 
+                        gap-6
                     "
                 >
-                    menu
+                    <FooterLink
+                        href="/articles"
+                    >
+                        Articles
+                    </FooterLink>
+                    <FooterLink
+                        href="/about"
+                    >
+                        About
+                    </FooterLink>
                 </div>
                 <p
                     className="
@@ -307,6 +318,7 @@ function MenuLink({
                     className="
                         block
                         px-3 py-2
+                        text-sm font-medium text-zinc-200
                         transition
                         hover:text-cyan-500
                     "
@@ -366,5 +378,29 @@ function HeroImage({
                 src={src}
             />
         </div>
+    );
+}
+
+function FooterLink({
+    href,
+    children
+}: {
+    href: string;
+    children: ReactNode
+}) {
+    return (
+        <Link
+            href={href}
+        >
+            <a
+                className="
+                    text-sm font-medium text-zinc-200
+                    transition
+                    hover:text-cyan-500
+                "
+            >
+                {children}
+            </a>
+        </Link>
     );
 }
