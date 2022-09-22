@@ -33,7 +33,8 @@ const Home: NextPage<Props> = ({
         <div
             className="
                 min-h-screen
-                bg-[#1e1c1f]
+                overflow-hidden
+                bg-black
                 text-zinc-400
             "
         >
@@ -45,252 +46,271 @@ const Home: NextPage<Props> = ({
                 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#1e1c1f"/>
                 <meta name="msapplication-TileColor" content="#1e1c1f"/>
                 <meta name="theme-color" content="#ffffff"/>
-                <title>Michael Nadeau - Software engineer, maker and trail runner</title>
+                <title>Michael Nadeau - Software engineer, maker, and trail runner</title>
             </Head>
-            <header
-                className="pt-6"
+            <div
+                className="
+                    max-w-7xl
+                    mx-auto
+                    bg-[#1e1c1f]
+                    border-x border-x-zinc-700/40
+
+                    children:px-4 sm:children:px-8 lg:children:px-12
+                "
             >
-                <nav
-                    className="flex justify-center"
+                <header
+                    className="pt-6"
                 >
-                    <ul
-                        className="
-                            flex justify-center
-                            px-3
-                            bg-zinc-800/90
-                            rounded-full
-                            ring-1 ring-white/10
-                            shadow-lg
-                        "
+                    <nav
+                        className="flex justify-center"
                     >
-                        <MenuLink
-                            href="/about"
+                        <ul
+                            className="
+                                flex justify-center
+                                px-3
+                                bg-zinc-800/90
+                                rounded-full
+                                ring-1 ring-white/10
+                                shadow-lg
+                            "
                         >
-                            About
-                        </MenuLink>
-                        <MenuLink
-                            href="/articles"
+                            <MenuLink
+                                href="/about"
+                            >
+                                About
+                            </MenuLink>
+                            <MenuLink
+                                href="/articles"
+                            >
+                                Articles
+                            </MenuLink>
+                        </ul>
+                    </nav>
+                    <div
+                        className="mt-16"
+                    >
+                        <Link
+                            href="/"
+                            aria-label="home"
                         >
-                            Articles
-                        </MenuLink>
-                    </ul>
-                </nav>
-                <div
-                    className="mt-16"
-                >
-                    <Link
-                        href="/"
-                        aria-label="home"
-                    >
-                        <a>
-                            <img
-                                src={profileImage.src}
-                                className="
-                                    inline-block
-                                    w-16
-                                    aspect-square
-                                    rounded-full
-                                "
-                                alt="Picture of Michael Nadeau"
-                            />
-                        </a>
-                    </Link>
-                </div>
-            </header>
-            <main>
-                <section
-                    className="mt-6"
-                >
-                    <h1
-                        className="
-                            text-4xl
-                            font-bold
-                            text-zinc-100
-                        "
-                    >
-                        Software engineer, maker and trail runner
-                    </h1>
-                    <p
+                            <a>
+                                <img
+                                    src={profileImage.src}
+                                    className="
+                                        inline-block
+                                        w-16
+                                        aspect-square
+                                        rounded-full
+                                    "
+                                    alt="Picture of Michael Nadeau"
+                                />
+                            </a>
+                        </Link>
+                    </div>
+                </header>
+                <main>
+                    <section
                         className="mt-6"
                     >
-                        Commodo aliquip fugiat eu cupidatat ullamco magna occaecat officia veniam ut. Minim aliquip est aute tempor tempor amet. In voluptate Lorem cillum ad consectetur consequat voluptate duis irure sint.
-                    </p>
-                    <div
-                        className="
-                            flex flex-row
-                            gap-6
-                            mt-6
-                        "
-                    >
-                        <SocialLink
-                            href="https://twitter.com/waaverecords"
-                            icon={FaTwitter}
-                        />
-                        <SocialLink
-                            href="https://github.com/waaverecords"
-                            icon={FaGithub}
-                        />
-                        <SocialLink
-                            href="https://www.youtube.com/channel/UCi10yZa5xAxsJbGpqCZdlRw"
-                            icon={FaYoutube}
-                        />
-                        <SocialLink
-                            href="https://www.twitch.tv/waaverecords"
-                            icon={FaTwitch}
-                        />
-                        <SocialLink
-                            href="https://www.etsy.com/ca/shop/WaaveRecords"
-                            icon={FaEtsy}
-                        />
-                    </div>
-                    <div
-                        className="
-                            overflow-hidden
-                            mt-14
-                        "
-                    >
                         <div
-                            className="
-                                relative
-                                inline-grid grid-flow-col
-                                py-1
-                                gap-5
-                                left-1/2
-                                -translate-x-1/2
-                            "
+                            className="max-w-2xl"
                         >
-                            {heroImages.map(image =>
-                                <HeroImage
-                                    key={image.src}
-                                    src={image.src}
-                                />
-                            )}
-                        </div>
-                    </div>
-                </section>
-                <section
-                    className="
-                        flex flex-col
-                        gap-16
-                        mt-24
-                    "
-                >
-                    {posts.map(post =>
-                        <article
-                            className="
-                                group
-                                relative
-                            "
-                        >
-                            <time
+                            <h1
                                 className="
-                                    relative
-                                    block
-                                    z-10
-                                    pl-3.5
-                                    mb-3
-                                    text-sm
-                                    text-zinc-500
-                                    border-l-2 border-solid border-zinc-500
-                                "
-                                dateTime={post.publishedOn}
-                            >
-                                {dateFormat(post.publishedOn, 'mmmm dS, yyyy')}
-                            </time>
-                            <h2
-                                className="
-                                    text-zinc-100
-                                    text-lg font-semibold
+                                    text-4xl sm:text-5xl
                                     tracking-tight
+                                    font-bold
+                                    text-zinc-100
                                 "
                             >
-                                <span 
-                                        className="
-                                            absolute
-                                            -inset-x-4 -inset-y-6
-                                            transition
-                                            group-hover:bg-zinc-800/50
-                                        "
-                                    />
-                                <a
-                                    href="#"
-                                >
-                                    
-                                    <span 
-                                        className="
-                                            absolute
-                                            z-20
-                                            -inset-x-4 -inset-y-6
-                                        "
-                                    />
-                                    <span
-                                        className="relative"
-                                    >
-                                        {post.title}
-                                    </span>
-                                </a>
-                            </h2>
+                                Software engineer, maker, and trail runner.
+                            </h1>
                             <p
                                 className="
-                                    relative
-                                    mt-2
-                                    text-sm
+                                    text-base
+                                    mt-6
                                 "
                             >
-                                Aute reprehenderit ea amet ut aliqua eiusmod laboris commodo mollit ad esse. Nostrud dolore mollit esse ea ea amet officia adipisicing ea.
+                                Commodo aliquip fugiat eu cupidatat ullamco magna occaecat officia veniam ut. Minim aliquip est aute tempor tempor amet. In voluptate Lorem cillum ad consectetur consequat voluptate duis irure sint.
                             </p>
                             <div
                                 className="
-                                    relative
-                                    flex items-center
-                                    gap-x-1
-                                    mt-4
-                                    text-sm font-medium text-cyan-500
+                                    flex flex-row
+                                    gap-6
+                                    mt-6
                                 "
                             >
-                                Read article
-                                <FaChevronRight
-                                    className="w-2 h-2"
+                                <SocialLink
+                                    href="https://twitter.com/waaverecords"
+                                    icon={FaTwitter}
+                                />
+                                <SocialLink
+                                    href="https://github.com/waaverecords"
+                                    icon={FaGithub}
+                                />
+                                <SocialLink
+                                    href="https://www.youtube.com/channel/UCi10yZa5xAxsJbGpqCZdlRw"
+                                    icon={FaYoutube}
+                                />
+                                <SocialLink
+                                    href="https://www.twitch.tv/waaverecords"
+                                    icon={FaTwitch}
+                                />
+                                <SocialLink
+                                    href="https://www.etsy.com/ca/shop/WaaveRecords"
+                                    icon={FaEtsy}
                                 />
                             </div>
-                        </article>
-                    )}
-                </section>
-            </main>
-            <footer
-                className="
-                    flex flex-col items-center justify-center
-                    gap-6
-                    mt-32
-                    pt-10 pb-16
-                    border-t border-zinc-700/40
-                "
-            >
-                <div
+                        </div>
+                        <div
+                            className="mt-14 sm:mt-20"
+                        >
+                            <div
+                                className="
+                                    relative
+                                    inline-grid grid-flow-col
+                                    py-1
+                                    gap-5
+                                    left-1/2
+                                    -translate-x-1/2
+                                "
+                            >
+                                {heroImages.map(image =>
+                                    <HeroImage
+                                        key={image.src}
+                                        src={image.src}
+                                    />
+                                )}
+                            </div>
+                        </div>
+                    </section>
+                    <section
+                        className="
+                            flex flex-col
+                            gap-16
+                            mt-24
+                        "
+                    >
+                        {posts.map(post =>
+                            <article
+                                className="
+                                    group
+                                    relative
+                                "
+                            >
+                                <time
+                                    className="
+                                        relative
+                                        block
+                                        z-10
+                                        pl-3.5
+                                        mb-3
+                                        text-sm
+                                        text-zinc-500
+                                        border-l-2 border-solid border-zinc-500
+                                    "
+                                    dateTime={post.publishedOn}
+                                >
+                                    {dateFormat(post.publishedOn, 'mmmm dS, yyyy')}
+                                </time>
+                                <h2
+                                    className="
+                                        text-zinc-100
+                                        text-lg font-semibold
+                                        tracking-tight
+                                    "
+                                >
+                                    <span 
+                                            className="
+                                                absolute
+                                                -inset-x-4 sm:-inset-x-6
+                                                -inset-y-6
+                                                sm:rounded-2xl
+                                                transition
+                                                group-hover:bg-zinc-800/50
+                                            "
+                                        />
+                                    <a
+                                        href="#"
+                                    >
+                                        
+                                        <span 
+                                            className="
+                                                absolute
+                                                z-20
+                                                -inset-x-4 sm:-inset-x-6
+                                                -inset-y-6
+                                            "
+                                        />
+                                        <span
+                                            className="relative"
+                                        >
+                                            {post.title}
+                                        </span>
+                                    </a>
+                                </h2>
+                                <p
+                                    className="
+                                        relative
+                                        mt-2
+                                        text-sm
+                                    "
+                                >
+                                    Aute reprehenderit ea amet ut aliqua eiusmod laboris commodo mollit ad esse. Nostrud dolore mollit esse ea ea amet officia adipisicing ea.
+                                </p>
+                                <div
+                                    className="
+                                        relative
+                                        flex items-center
+                                        gap-x-1
+                                        mt-4
+                                        text-sm font-medium text-cyan-500
+                                    "
+                                >
+                                    Read article
+                                    <FaChevronRight
+                                        className="w-2 h-2"
+                                    />
+                                </div>
+                            </article>
+                        )}
+                    </section>
+                </main>
+                <footer
                     className="
-                        flex 
+                        flex flex-col sm:flex-row items-center justify-between
                         gap-6
+                        mt-32
+                        pt-10 pb-16
+                        border-t border-zinc-700/40
                     "
                 >
-                    <FooterLink
-                        href="/articles"
+                    <div
+                        className="
+                            flex 
+                            gap-6
+                        "
                     >
-                        Articles
-                    </FooterLink>
-                    <FooterLink
-                        href="/about"
+                        <FooterLink
+                            href="/about"
+                        >
+                            About
+                        </FooterLink>
+                        <FooterLink
+                            href="/articles"
+                        >
+                            Articles
+                        </FooterLink>
+                    </div>
+                    <p
+                        className="
+                            text-sm text-zinc-500
+                        "
                     >
-                        About
-                    </FooterLink>
-                </div>
-                <p
-                    className="
-                        text-sm text-zinc-500
-                    "
-                >
-                    © {new Date().getFullYear()} Michael Nadeau. All rights reserved.
-                </p>
-            </footer>
+                        © {new Date().getFullYear()} Michael Nadeau. All rights reserved.
+                    </p>
+                </footer>
+            </div>
         </div>
     )
 }
@@ -369,10 +389,10 @@ function HeroImage({
         <div
             className={twMerge(
                 `
-                    w-44
+                    w-44 sm:w-72
                     aspect-[9/10]
                     overflow-hidden
-                    rounded-2xl
+                    rounded-xl sm:rounded-2xl
                 `,
                 Math.random() < 0.5 ? '-rotate-2' : 'rotate-2'
             )}
