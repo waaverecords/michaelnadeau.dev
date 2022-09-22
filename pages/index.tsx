@@ -9,6 +9,9 @@ import { IconType } from 'react-icons';
 import profileImage from '../public/profile.jpg';
 import hero1 from '../public/hero1.jpg';
 import hero2 from '../public/hero2.jpg';
+import hero3 from '../public/hero3.jpg';
+import hero4 from '../public/hero4.jpg';
+import hero5 from '../public/hero5.jpg';
 import { getAllPosts, Post } from '../blog/blog';
 
 interface Props {
@@ -297,9 +300,9 @@ export default Home;
 const heroImages = new Array(...[
     hero1,
     hero2,
-    hero1,
-    hero2,
-    hero1,
+    hero3,
+    hero4,
+    hero5,
 ]);
 
 function MenuLink({
@@ -366,7 +369,7 @@ function HeroImage({
         <div
             className={twMerge(
                 `
-                    w-48
+                    w-44
                     aspect-[9/10]
                     overflow-hidden
                     rounded-2xl
@@ -375,6 +378,10 @@ function HeroImage({
             )}
         >
             <img
+                className="
+                    w-full h-full
+                    object-cover
+                "
                 src={src}
             />
         </div>
