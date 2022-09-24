@@ -32,6 +32,7 @@ const Home: NextPage<Props> = ({
     return (
         <div
             className="
+                sm:px-8 lg:px-16
                 min-h-screen
                 overflow-hidden
                 bg-black
@@ -50,12 +51,15 @@ const Home: NextPage<Props> = ({
             </Head>
             <div
                 className="
-                    max-w-7xl
+                    max-w-[76rem]
                     mx-auto
                     bg-[#1e1c1f]
                     border-x border-x-zinc-700/40
 
                     children:px-4 sm:children:px-8 lg:children:px-12
+
+                    children:children:mx-auto
+                    children:children:max-w-2xl lg:children:children:max-w-5xl
                 "
             >
                 <header
@@ -170,7 +174,7 @@ const Home: NextPage<Props> = ({
                                     relative
                                     inline-grid grid-flow-col
                                     py-1
-                                    gap-5
+                                    gap-5 sm:gap-8
                                     left-1/2
                                     -translate-x-1/2
                                 "
@@ -278,8 +282,6 @@ const Home: NextPage<Props> = ({
                 </main>
                 <footer
                     className="
-                        flex flex-col sm:flex-row items-center justify-between
-                        gap-6
                         mt-32
                         pt-10 pb-16
                         border-t border-zinc-700/40
@@ -287,28 +289,35 @@ const Home: NextPage<Props> = ({
                 >
                     <div
                         className="
-                            flex 
+                            flex flex-col sm:flex-row items-center justify-between
                             gap-6
                         "
                     >
-                        <FooterLink
-                            href="/about"
+                        <div
+                            className="
+                                flex 
+                                gap-6
+                            "
                         >
-                            About
-                        </FooterLink>
-                        <FooterLink
-                            href="/articles"
+                            <FooterLink
+                                href="/about"
+                            >
+                                About
+                            </FooterLink>
+                            <FooterLink
+                                href="/articles"
+                            >
+                                Articles
+                            </FooterLink>
+                        </div>
+                        <p
+                            className="
+                                text-sm text-zinc-500
+                            "
                         >
-                            Articles
-                        </FooterLink>
+                            © {new Date().getFullYear()} Michael Nadeau. All rights reserved.
+                        </p>
                     </div>
-                    <p
-                        className="
-                            text-sm text-zinc-500
-                        "
-                    >
-                        © {new Date().getFullYear()} Michael Nadeau. All rights reserved.
-                    </p>
                 </footer>
             </div>
         </div>
