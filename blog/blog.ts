@@ -15,7 +15,7 @@ export type Post = {
 export function getAllPosts() {
     const files = fs.readdirSync(path.join(root, 'blog', 'posts'));
 
-    return files.reduce((posts, fileName) => {
+    const posts = files.reduce((posts, fileName) => {
         const post = getPostBySlug(fileName.replace('.md', ''));
         
         return [
@@ -23,6 +23,7 @@ export function getAllPosts() {
             ...posts,
         ];
     }, new Array<Post>());
+    return posts.sort((a, b) => a.publishedOn < b.publishedOn ? 1 : a.publishedOn == b.publishedOn ? 0 : -1);
 };
 
 export function getPostBySlug(slug: string) {

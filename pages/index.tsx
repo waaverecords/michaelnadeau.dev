@@ -1,9 +1,8 @@
 import type { GetStaticProps, NextPage } from 'next';
 import Link from 'next/link';
 import Head from 'next/head';
-import { FaChevronRight, FaEtsy, FaGithub, FaTwitch, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { FaEtsy, FaGithub, FaTwitch, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { twMerge } from 'tailwind-merge';
-import dateFormat from 'dateformat';
 import { IconType } from 'react-icons';
 import hero1 from '../public/hero1.jpg';
 import hero2 from '../public/hero2.jpg';
@@ -11,6 +10,8 @@ import hero3 from '../public/hero3.jpg';
 import hero4 from '../public/hero4.jpg';
 import hero5 from '../public/hero5.jpg';
 import { getAllPosts, Post } from '../blog/blog';
+import H1 from '../components/h1';
+import BlogSummary from '../components/blogSummary';
 
 interface Props {
     posts: Array<Post>;
@@ -19,7 +20,7 @@ interface Props {
 export const getStaticProps: GetStaticProps<Props> = async () => {
     return {
         props: {
-            posts: getAllPosts()
+            posts: getAllPosts().splice(0, 3)
         },
     }
 }
@@ -38,16 +39,9 @@ const Home: NextPage<Props> = ({
                 <div
                     className="max-w-2xl"
                 >
-                    <h1
-                        className="
-                            text-4xl sm:text-5xl
-                            tracking-tight
-                            font-bold
-                            text-zinc-100
-                        "
-                    >
+                    <H1>
                         Software engineer, maker, and trail runner.
-                    </h1>
+                    </H1>
                     <p
                         className="
                             text-base
@@ -116,88 +110,10 @@ const Home: NextPage<Props> = ({
                 "
             >
                 {posts.map(post =>
-                    <article
+                    <BlogSummary
                         key={post.slug}
-                        className="
-                            group
-                            relative
-                        "
-                    >
-                        <time
-                            className="
-                                relative
-                                block
-                                z-10
-                                pl-3.5
-                                mb-3
-                                text-sm
-                                text-zinc-500
-                                border-l-2 border-solid border-zinc-500
-                            "
-                            dateTime={post.publishedOn}
-                        >
-                            {dateFormat(post.publishedOn, 'mmmm dS, yyyy')}
-                        </time>
-                        <h2
-                            className="
-                                text-zinc-100
-                                text-lg font-semibold
-                                tracking-tight
-                            "
-                        >
-                            <span 
-                                    className="
-                                        absolute
-                                        -inset-x-4 sm:-inset-x-6
-                                        -inset-y-6
-                                        sm:rounded-2xl
-                                        transition
-                                        group-hover:bg-zinc-800/50
-                                    "
-                                />
-                            <a
-                                href="#"
-                            >
-                                
-                                <span 
-                                    className="
-                                        absolute
-                                        z-20
-                                        -inset-x-4 sm:-inset-x-6
-                                        -inset-y-6
-                                    "
-                                />
-                                <span
-                                    className="relative"
-                                >
-                                    {post.title}
-                                </span>
-                            </a>
-                        </h2>
-                        <p
-                            className="
-                                relative
-                                mt-2
-                                text-sm
-                            "
-                        >
-                            Aute reprehenderit ea amet ut aliqua eiusmod laboris commodo mollit ad esse. Nostrud dolore mollit esse ea ea amet officia adipisicing ea.
-                        </p>
-                        <div
-                            className="
-                                relative
-                                flex items-center
-                                gap-x-1
-                                mt-4
-                                text-sm font-medium text-cyan-500
-                            "
-                        >
-                            Read article
-                            <FaChevronRight
-                                className="w-2 h-2"
-                            />
-                        </div>
-                    </article>
+                        post={post}
+                    />
                 )}
             </section>
             </>

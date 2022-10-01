@@ -1,6 +1,6 @@
 ---
 title: How To Run AB Tests In React
-publishedOn: '2021-03-17'
+publishedOn: '2022-07-22'
 tags:
   - react
   - ab testing
