@@ -73,7 +73,6 @@ function MyApp({ Component, pageProps }: AppProps) {
                     >
                         <Link
                             href="/"
-                            aria-label="home"
                         >
                             <a>
                                 <img
@@ -90,7 +89,9 @@ function MyApp({ Component, pageProps }: AppProps) {
                         </Link>
                     </div>
                 </header>
-                <main>
+                <main
+                    className="relative"
+                >
                     <Component {...pageProps} />
                 </main>
                 <footer

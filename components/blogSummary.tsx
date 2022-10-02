@@ -1,7 +1,8 @@
+import Link from "next/link";
 import { FC } from "react";
 import { FaChevronRight } from "react-icons/fa";
-import dateFormat from 'dateformat';
 import { Post } from "../blog/blog";
+import Time from "./time";
 
 interface BlogSummaryProps {
     post: Post;
@@ -20,21 +21,9 @@ const BlogSummary: FC<BlogSummaryProps> = (
                 relative
             "
         >
-            <time
-                className="
-                    relative
-                    block
-                    z-10
-                    pl-3.5
-                    mb-3
-                    text-sm
-                    text-zinc-500
-                    border-l-2 border-solid border-zinc-500
-                "
-                dateTime={post.publishedOn}
-            >
-                {dateFormat(post.publishedOn, 'mmmm dS, yyyy')}
-            </time>
+            <Time>
+                {post.publishedOn}
+            </Time>
             <h2
                 className="
                     text-zinc-100
@@ -52,24 +41,25 @@ const BlogSummary: FC<BlogSummaryProps> = (
                             group-hover:bg-zinc-800/50
                         "
                     />
-                <a
-                    href="#"
+                <Link
+                    href={`/articles/${post.slug}`}
                 >
-                    
-                    <span 
-                        className="
-                            absolute
-                            z-20
-                            -inset-x-4 sm:-inset-x-6
-                            -inset-y-6
-                        "
-                    />
-                    <span
-                        className="relative"
-                    >
-                        {post.title}
-                    </span>
-                </a>
+                    <a>
+                        <span 
+                            className="
+                                absolute
+                                z-20
+                                -inset-x-4 sm:-inset-x-6
+                                -inset-y-6
+                            "
+                        />
+                        <span
+                            className="relative"
+                        >
+                            {post.title}
+                        </span>
+                    </a>
+                </Link>
             </h2>
             <p
                 className="
