@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { ParsedUrlQuery } from 'querystring';
 import { FaArrowLeft } from 'react-icons/fa';
@@ -46,6 +47,9 @@ const BlogSlugPage: NextPage<Post> = ({
                 xl:relative
             "
         >
+            <Head>
+                <title>{title} - Michael Nadeau</title>
+            </Head>
             <div
                 className="
                     max-w-2xl
