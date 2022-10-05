@@ -3,6 +3,8 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { ParsedUrlQuery } from 'querystring';
 import { FaArrowLeft } from 'react-icons/fa';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm'
 import { getAllPosts, getPostBySlug, Post } from '../../blog/blog';
 import H1 from '../../components/h1';
 import Time from '../../components/time';
@@ -101,9 +103,15 @@ const BlogSlugPage: NextPage<Post> = ({
                         {title}
                     </H1>
                     <div
-                        className="mt-8"
+                        className="
+                            mt-8
+                            prose prose-invert
+                        "
                     >
-                        Anim aute laborum eu ex veniam pariatur. Laborum nisi aliqua fugiat tempor enim ipsum consectetur. Elit esse do eu non enim occaecat reprehenderit deserunt nisi aliquip.
+                        <ReactMarkdown
+                            children={markdown}
+                            remarkPlugins={[remarkGfm]}
+                        />
                     </div>
                 </article>
             </div>
