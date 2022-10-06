@@ -8,7 +8,7 @@ tags:
 
 Ea ut do exercitation ipsum consectetur tempor elit magna laborum nulla ut. Qui excepteur id cillum et occaecat voluptate pariatur ipsum mollit excepteur est ut. Fugiat aliqua adipisicing eu sit incididunt. Aute aliquip ut qui minim elit in pariatur non enim et.
 
-![alt text](https://spotlight.tailwindui.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fplanetaria-design-system.d4cfce90.png&w=1920&q=75 "Title")
+![alt text](/public/blog/post4/hero5.jpg "Title")
 
 Proident minim incididunt elit tempor nulla eu. Elit dolore veniam aute cillum veniam pariatur anim nulla sunt. Sint ullamco consequat cillum pariatur occaecat sit commodo. Eu laboris dolor veniam exercitation Lorem excepteur proident mollit est in pariatur labore id elit. Et pariatur Lorem dolore ipsum cupidatat quis pariatur adipisicing do labore. Nostrud minim sit labore laboris adipisicing.
 

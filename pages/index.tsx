@@ -4,11 +4,6 @@ import Head from 'next/head';
 import { FaEtsy, FaGithub, FaTwitch, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { twMerge } from 'tailwind-merge';
 import { IconType } from 'react-icons';
-import hero1 from '../public/hero1.jpg';
-import hero2 from '../public/hero2.jpg';
-import hero3 from '../public/hero3.jpg';
-import hero4 from '../public/hero4.jpg';
-import hero5 from '../public/hero5.jpg';
 import { getAllPosts, Post } from '../blog/blog';
 import H1 from '../components/h1';
 import BlogSummary from '../components/blogSummary';
@@ -92,10 +87,10 @@ const Home: NextPage<Props> = ({
                             -translate-x-1/2
                         "
                     >
-                        {heroImages.map((image, i) =>
+                        {heroImagePaths.map((path, i) =>
                             <HeroImage
-                                key={image.src}
-                                src={image.src}
+                                key={path}
+                                src={path}
                                 className={heroImageRotations[i] ? 'rotate-2' : '-rotate-2'}
                             />
                         )}
@@ -122,12 +117,12 @@ const Home: NextPage<Props> = ({
 
 export default Home;
 
-const heroImages = new Array(...[
-    hero1,
-    hero2,
-    hero3,
-    hero4,
-    hero5,
+const heroImagePaths = new Array(...[
+    '/images/hero1.jpg',
+    '/images/hero2.jpg',
+    '/images/hero3.jpg',
+    '/images/hero4.jpg',
+    '/images/hero5.jpg',
 ]);
 
 const heroImageRotations = new Array(...[

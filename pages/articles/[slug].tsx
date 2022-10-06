@@ -111,6 +111,7 @@ const BlogSlugPage: NextPage<Post> = ({
                         <ReactMarkdown
                             children={markdown}
                             remarkPlugins={[remarkGfm]}
+                            transformImageUri={src => src.replace(/^\/public/, '')}
                         />
                     </div>
                 </article>
