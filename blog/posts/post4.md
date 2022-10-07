@@ -29,7 +29,7 @@ Est do labore nulla nisi cillum deserunt ad ut pariatur do cupidatat. Occaecat c
 - cccc
     - asdad
 
-```
+```tsx
 const a = 2;
 var b = () => { return true; };
 function test() {}

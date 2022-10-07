@@ -114,14 +114,15 @@ const BlogSlugPage: NextPage<Post> = ({
                             remarkPlugins={[remarkGfm]}
                             transformImageUri={src => src.replace(/^\/public/, '')}
                             components={{
-                                code: ({ children }) => (
-                                    <CodeBlock
+                                code: ({ children, className }) => {
+                                    const match = /language-(\w+)/.exec(className || '')
+                                    return <CodeBlock
                                         text={children}
                                         showLineNumbers={false}
-                                        language="tsx"
                                         theme={customTheme}
+                                        language={match ? match[1] : undefined}
                                     />
-                                )
+                                }
                             }}
                         />
                     </div>
