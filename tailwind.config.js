@@ -40,6 +40,8 @@ module.exports = {
                         '--tw-prose-invert-links': theme('colors.cyan[500]'),
                         '--tw-prose-invert-underline': 'transparent',
                         '--tw-prose-invert-underline-hover': theme('colors.cyan[500]'),
+                        '--tw-prose-invert-counters': theme('colors.zinc[200]'),
+                        '--tw-prose-invert-dots': theme('colors.zinc[200]'),
                         maxWidth: 'unset',
                         h2: {
                             fontSize: '1.25rem',
@@ -58,6 +60,39 @@ module.exports = {
                             marginTop: '2.5rem',
                             marginBottom: '2.5rem',
                             borderRadius: '1.5rem'
+                        },
+                        ol: {
+                            paddingLeft: '1.5rem',
+                            marginTop: '2.5rem',
+                            marginBottom: '2.5rem',
+
+                            '& > li': {
+                                paddingLeft: '0.875rem',
+                                marginTop: '1.5rem',
+                                marginBottom: '1.5rem',
+
+                                '&::marker': {
+                                    fontWeight: 600,
+                                    fontSize: '0.875rem',
+                                    color: 'var(--tw-prose-invert-counters)'
+                                }
+                            }
+                        },
+                        ul: {
+                            paddingLeft: '1.5rem',
+                            marginTop: '2.5rem',
+                            marginBottom: '2.5rem',
+
+                            '& > li': {
+                                paddingLeft: '0.875rem',
+                                marginTop: '1.5rem',
+                                marginBottom: '1.5rem',
+
+                                '&::marker': {
+                                    fontSize: '0.875rem',
+                                    color: 'var(--tw-prose-invert-dots)'
+                                }
+                            }
                         }
                     }
                 }
