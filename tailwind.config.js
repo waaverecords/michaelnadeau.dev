@@ -42,6 +42,8 @@ module.exports = {
                         '--tw-prose-invert-underline-hover': theme('colors.cyan[500]'),
                         '--tw-prose-invert-counters': theme('colors.zinc[200]'),
                         '--tw-prose-invert-dots': theme('colors.zinc[200]'),
+                        '--tw-prose-invert-pre-bg': 'rgb(0, 0, 0, 0.4)',
+                        '--tw-prose-invert-pre-border': 'hsla(240, 6%, 90%, 0.1)',
                         maxWidth: 'unset',
                         h2: {
                             fontSize: '1.25rem',
@@ -93,6 +95,14 @@ module.exports = {
                                     color: 'var(--tw-prose-invert-dots)'
                                 }
                             }
+                        },
+                        pre: {
+                            padding: '2rem',
+                            marginTop: '2.5rem',
+                            marginBottom: '2.5rem',
+                            borderRadius: '1.5rem',
+                            border: '1px solid',
+                            borderColor: 'var(--tw-prose-invert-pre-border)'
                         }
                     }
                 }

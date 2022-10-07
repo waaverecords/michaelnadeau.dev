@@ -5,6 +5,7 @@ import { ParsedUrlQuery } from 'querystring';
 import { FaArrowLeft } from 'react-icons/fa';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm'
+import { CodeBlock, nord } from 'react-code-blocks';
 import { getAllPosts, getPostBySlug, Post } from '../../blog/blog';
 import H1 from '../../components/h1';
 import Time from '../../components/time';
@@ -112,6 +113,16 @@ const BlogSlugPage: NextPage<Post> = ({
                             children={markdown}
                             remarkPlugins={[remarkGfm]}
                             transformImageUri={src => src.replace(/^\/public/, '')}
+                            components={{
+                                code: ({ children }) => (
+                                    <CodeBlock
+                                        text={children}
+                                        showLineNumbers={false}
+                                        language="tsx"
+                                        theme={customTheme}
+                                    />
+                                )
+                            }}
                         />
                     </div>
                 </article>
@@ -121,3 +132,10 @@ const BlogSlugPage: NextPage<Post> = ({
 };
 
 export default BlogSlugPage;
+
+const customTheme = { ...nord };
+Object.getOwnPropertyNames(customTheme)
+    .forEach(name => customTheme[name as keyof typeof customTheme] = 'inherit');
+customTheme.backgroundColor = 'unset';
+customTheme.textColor = '#f4f4f5';
+customTheme.functionColor = '#f472b6';

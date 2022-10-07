@@ -28,3 +28,9 @@ Est do labore nulla nisi cillum deserunt ad ut pariatur do cupidatat. Occaecat c
 - basda
 - cccc
     - asdad
+
+```
+const a = 2;
+var b = () => { return true; };
+function test() {}
+```
