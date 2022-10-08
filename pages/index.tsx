@@ -43,7 +43,7 @@ const Home: NextPage<Props> = ({
                             mt-6
                         "
                     >
-                        Commodo aliquip fugiat eu cupidatat ullamco magna occaecat officia veniam ut. Minim aliquip est aute tempor tempor amet. In voluptate Lorem cillum ad consectetur consequat voluptate duis irure sint.
+                        I'm Michael, a software engineer and outdoor enthusiast based in Saint-Georges. I take on projects which blend art, software and electronics. I know that I know nothing, and I'm changing that, bit by bit, every day.
                     </p>
                     <div
                         className="
