@@ -43,7 +43,7 @@ const Home: NextPage<Props> = ({
                             mt-6
                         "
                     >
-                        I'm Michael, a software engineer and outdoor enthusiast based in Saint-Georges. I take on projects which blend art, software and electronics. I know that I know nothing, and I'm changing that, bit by bit, every day.
+                        I'm Michael, a software engineer and outdoor enthusiast based in Saint-Georges. I take on projects which blend art, software and electronics. I make it a priority to learn something new everyday.
                     </p>
                     <div
                         className="
