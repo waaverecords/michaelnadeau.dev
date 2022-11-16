@@ -13,6 +13,7 @@ const Articles: NextPage<Props> = ({
             <Head>
                 <title>About - Michael Nadeau</title>
             </Head>
+            Coming soon.
         </section>
     );
 }

@@ -8,12 +8,17 @@ export type Post = {
     slug: string;
     title: string;
     publishedOn: string;
-    tags: Array<string>;
+    preview: string;
     markdown: string;
 };
 
 export function getAllPosts() {
-    const files = fs.readdirSync(path.join(root, 'blog', 'posts'));
+    const folderPath = path.join(root, 'blog', 'posts');
+
+    if (!fs.existsSync(folderPath))
+        return new Array();
+
+    const files = fs.readdirSync(folderPath);
 
     const posts = files.reduce((posts, fileName) => {
         const post = getPostBySlug(fileName.replace('.md', ''));
@@ -33,6 +38,7 @@ export function getPostBySlug(slug: string) {
 
     return {
         ...metadata,
+        preview: `${markdown.split(' ').slice(0, 24).join(' ')}...`,
         slug: slug,
         markdown,
     } as Post;

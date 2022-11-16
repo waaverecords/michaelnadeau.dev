@@ -68,7 +68,7 @@ const BlogSummary: FC<BlogSummaryProps> = (
                     text-sm
                 "
             >
-                Aute reprehenderit ea amet ut aliqua eiusmod laboris commodo mollit ad esse. Nostrud dolore mollit esse ea ea amet officia adipisicing ea.
+                {post.preview}
             </p>
             <div
                 className="

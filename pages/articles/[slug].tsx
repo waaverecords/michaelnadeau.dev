@@ -38,7 +38,6 @@ export const getStaticProps: GetStaticProps<Post, Query> = async ({
 const BlogSlugPage: NextPage<Post> = ({
     title,
     publishedOn,
-    tags,
     markdown
 })=> {
     const router = useRouter();
