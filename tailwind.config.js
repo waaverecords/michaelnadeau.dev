@@ -61,6 +61,8 @@ module.exports = {
                         img: {
                             marginTop: '2.5rem',
                             marginBottom: '2.5rem',
+                            marginLeft: 'auto',
+                            marginRight: 'auto',
                             borderRadius: '1.5rem'
                         },
                         ol: {
