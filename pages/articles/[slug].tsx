@@ -138,4 +138,5 @@ Object.getOwnPropertyNames(customTheme)
     .forEach(name => customTheme[name as keyof typeof customTheme] = 'inherit');
 customTheme.backgroundColor = 'unset';
 customTheme.textColor = '#f4f4f5';
-customTheme.functionColor = '#f472b6';
+customTheme.functionColor = '#f472b6'; // https://www.colorhexa.com/f472b6
+customTheme.commentColor = '#72f4b0';
