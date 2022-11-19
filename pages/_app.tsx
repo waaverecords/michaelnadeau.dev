@@ -3,7 +3,6 @@ import Head from 'next/head';
 import { ReactNode } from 'react';
 import Link from 'next/link';
 import '../styles/globals.css';
-import profileImage from '../public/profile.jpg';
 import { useRouter } from 'next/router';
 import { twMerge } from 'tailwind-merge';
 
@@ -44,18 +43,30 @@ function MyApp({ Component, pageProps }: AppProps) {
                     className="pt-6"
                 >
                     <nav
-                        className="flex justify-center"
+                        className="
+                            fixed left-1/2 -translate-x-1/2
+                            flex justify-center
+                            z-10
+                        "
                     >
                         <ul
                             className="
                                 flex justify-center
                                 px-3
-                                bg-zinc-800/90
                                 rounded-full
                                 ring-1 ring-white/10
                                 shadow-lg
                             "
                         >
+                            <div
+                                className="
+                                    absolute
+                                    w-full h-full
+                                    rounded-full
+                                    bg-zinc-800/90
+                                    backdrop-blur
+                                "
+                            />
                             <MenuLink
                                 href="/about"
                             >
@@ -69,7 +80,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                         </ul>
                     </nav>
                     <div
-                        className="mt-16"
+                        className="mt-26"
                     >
                         <Link
                             href="/"

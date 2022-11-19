@@ -32,6 +32,9 @@ module.exports = {
                     }
                 ]
             },
+            spacing: {
+                '26': '6.5rem'
+            },
             typography: ({ theme }) => ({
                 DEFAULT: {
                     css: {
