@@ -44,10 +44,10 @@ _app.tsx should be almost empty:
 ```tsx
 // pages/_app.tsx
 
-import type { AppProps } from 'next/app'
+import type { AppProps } from 'next/app';
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+    return <Component {...pageProps} />;
 }
 ```
 
@@ -56,9 +56,29 @@ and so does index.tsx:
 // pages/index.ts
 
 export default function Home() {
-const b = true;
-  return null;
+    const b = true;
+    return null;
 }
 ```
 
 The purge being done, we will start building the core blocks of our application.
+
+## Markdown
+
+You could write your content using plain HTML. And, while it would be a viable solution, there is a much simpler and faster way to do so. Markdown is a lightweight markup language that uses a plain text formatting syntax: It's easy to read and write; It's widely adopted by writers and publishers; And it doesn't break.
+
+We first need a folder to contain all of our juicy content. I'll call mine "posts" and place it in the root folder of my project.
+
+Then, append to that folder a file with the "md" extension. The file's name should be descriptive of its content as it will serve as the path to access that post. For example:
+| File name | Url |
+| - | - |
+| post1.md | https​://myblog.com/articles/post1 |
+| how-to-build-a-blog.md | https​://myblog.com/articles/how-to-build-a-blog |
+
+The posts folder and first markdown file created, you project's structure should look like this:
+```
+...
+posts/
+    post1.md
+...
+```
