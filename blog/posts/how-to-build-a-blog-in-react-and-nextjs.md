@@ -3,15 +3,15 @@ title: How to build a blog in React and Next.js
 publishedOn: '2022-11-20'
 ---
 
-While there are many out of the box solutions for blogging, I believe that coding our way to our very own build has many advantages:
+While there are many out-of-the-box solutions for blogging, I believe that coding our way to our very own build has many advantages:
 
 1. Apply any changes to your blog that your heart desires
 2. Make the most modern or silliest UI
 3. Control the complexity of your posts management system
 4. Use your blog as a portfolio piece
-5. Use building your own blog as content for your blog 😅
+5. Use building your blog as content for your blog 😅
 
-Before we start, if you'd like an ez pz copy pasta solution, this very blog's code can be found on my [Github](https://github.com/waaverecords/michael.nadeau.dev). Now, if you didn't click the link, let's get started!
+Before we start, if you'd like an EZ Pz copy pasta solution, this very blog's code can be found on my [Github](https://github.com/waaverecords/michael.nadeau.dev). Now, if you didn't click the link, let's get started!
 
 ## Project initialization
 
@@ -61,11 +61,11 @@ export default function Home() {
 }
 ```
 
-The purge being done, we will start building the core blocks of our application.
+With the purge being done, we will start building the core blocks of our application.
 
 ## Markdown
 
-You could write your content using plain HTML. And, while it would be a viable solution, there is a much simpler and faster way to do so. Markdown is a lightweight markup language that uses a plain text formatting syntax: It's easy to read and write; It's widely adopted by writers and publishers; And it doesn't break.
+You could write your content using plain HTML. And, while it would be a viable solution, there is a much simpler and faster way to do so. Markdown is a lightweight markup language that uses a plain text formatting syntax: It's easy to read and write; It's widely adopted by writers and publishers, And it doesn't break.
 
 We first need a folder to contain all of our juicy content. I'll call mine "posts" and place it in the root folder of my project.
 
@@ -75,10 +75,23 @@ Then, append to that folder a file with the "md" extension. The file's name shou
 | post1.md | https​://myblog.com/articles/post1 |
 | how-to-build-a-blog.md | https​://myblog.com/articles/how-to-build-a-blog |
 
-The posts folder and first markdown file created, you project's structure should look like this:
+The posts folder and first markdown file created, your project's structure should look like this:
 ```
 ...
 posts/
     post1.md
+...
+```
+
+Both the content of your post and its metadata will be written in the same file. That way, the data is centralized and easily accessed. The metadata should occupy the first lines followed by the content. Notice how the metadata is surrounded by dashes "---"; The gray-matter package installed earlier will look for these and parse the data within:
+```js
+// posts/post1.md
+
+---
+title: How to build a blog in React and Next.js
+publishedOn: '2022-11-20'
+---
+
+Pariatur cupidatat ipsum non exercitation.
 ...
 ```
