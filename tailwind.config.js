@@ -32,6 +32,9 @@ module.exports = {
                     }
                 ]
             },
+            spacing: {
+                '26': '6.5rem'
+            },
             typography: ({ theme }) => ({
                 DEFAULT: {
                     css: {
@@ -44,6 +47,8 @@ module.exports = {
                         '--tw-prose-invert-dots': theme('colors.zinc[200]'),
                         '--tw-prose-invert-pre-bg': 'rgb(0, 0, 0, 0.4)',
                         '--tw-prose-invert-pre-border': 'hsla(240, 6%, 90%, 0.1)',
+                        '--tw-prose-invert-th-borders': 'rgb(63 63 70 / 0.4)',
+                        '--tw-prose-invert-td-borders': 'rgb(63 63 70 / 0.4)',
                         maxWidth: 'unset',
                         h2: {
                             fontSize: '1.25rem',
@@ -105,6 +110,25 @@ module.exports = {
                             borderRadius: '1.5rem',
                             border: '1px solid',
                             borderColor: 'var(--tw-prose-invert-pre-border)'
+                        },
+                        table: {
+                            marginTop: '2.5rem',
+                            marginBottom: '2.5rem',
+                            marginLeft: '2.375rem',
+                            marginRight: '2.375rem',
+                            width: '-webkit-fill-available',
+
+                            '& th': {
+                                borderBottomColor: 'var(--tw-prose-invert-th-borders)'
+                            },
+
+                            '& tr': {
+                                borderBottomColor: 'var(--tw-prose-invert-td-borders)'
+                            },
+
+                            '& td': {
+                                fontSize: '1rem',
+                            }
                         }
                     }
                 }
