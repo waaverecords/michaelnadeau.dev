@@ -112,8 +112,8 @@ module.exports = {
                             borderColor: 'var(--tw-prose-invert-pre-border)'
                         },
                         table: {
-                            marginTop: '2.5rem',
-                            marginBottom: '2.5rem',
+                            marginTop: '4.5rem',
+                            marginBottom: '4.5rem',
                             marginLeft: '2.375rem',
                             marginRight: '2.375rem',
                             width: '-webkit-fill-available',
