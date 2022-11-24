@@ -75,7 +75,7 @@ Then, append to that folder a file with the "md" extension. The file's name shou
 | post1.md | https​://myblog.com/articles/post1 |
 | how-to-build-a-blog.md | https​://myblog.com/articles/how-to-build-a-blog |
 
-The posts folder and first markdown file created, your project's structure should look like this:
+The posts folder and first Markdown file created, your project's structure should look like this:
 ```
 ...
 posts/
@@ -94,4 +94,67 @@ publishedOn: '2022-11-20'
 
 Pariatur cupidatat ipsum non exercitation.
 ...
+```
+
+How to parse the Markdown will be shown in the next section.
+
+## Parsing Markdown
+
+To manipulate posts easily, make use of Typescript by creating a new type named "Post".
+```ts
+// blog.ts
+
+export type Post = {
+    slug: string;
+    title: string;
+    publishedOn: string;
+    markdown: string;
+}
+```
+
+```ts
+// blog.ts
+// ...
+
+const root = process.cwd();
+
+export function getPostBySlug(slug: string) {
+    const content = fs.readFileSync(
+        path.join(root, 'blog', 'posts', `${slug}.md`),
+        'utf8'
+    );
+
+    const { data: metadata, content: markdown } = matter(content)
+
+    return {
+        ...metadata,
+        slug: slug,
+        markdown
+    } as Post;
+}
+```
+
+```ts
+// blog.ts
+// ...
+
+export function getAllPosts() {
+    const folderPath = path.join(root, 'blog', 'posts');
+
+    if (!fs.existsSync(folderPath))
+        return new Array();
+
+    const files = fs.readdirSync(folderPath);
+
+    const posts = files.reduce((posts, fileName) => {
+        const post = getPostBySlug(fileName.replace('.md', ''));
+        
+        return [
+            post,
+            ...posts
+        ];
+    }, new Array<Post>());
+
+    return posts;
+}
 ```
