@@ -69,11 +69,11 @@ You could write your content using plain HTML. And, while it would be a viable s
 
 We first need a folder to contain all of our juicy content. I'll call mine "posts" and place it in the root folder of my project.
 
-Then, append to that folder a file with the "md" extension. The file's name should be descriptive of its content as it will serve as the path to access that post. For example:
-| File name | Url |
-| - | - |
-| post1.md | https​://myblog.com/articles/post1 |
-| how-to-build-a-blog.md | https​://myblog.com/articles/how-to-build-a-blog |
+Then, append to that folder a file with the "md" extension. The file's name should be descriptive of its content as it will serve as the slug/path to access that post. For example:
+| File name |Slug  | Url |
+| - | - | - |
+| post1.md | post1 | https​://myblog.com/articles/post1 |
+| how-to-build-a-blog.md | how-to-build-a-blog | https​://myblog.com/articles/how-to-build-a-blog |
 
 The posts folder and first Markdown file created, your project's structure should look like this:
 ```
@@ -83,7 +83,7 @@ posts/
 ...
 ```
 
-Both the content of your post and its metadata will be written in the same file. That way, the data is centralized and easily accessed. The metadata should occupy the first lines followed by the content. Notice how the metadata is surrounded by dashes "---"; The gray-matter package installed earlier will look for these and parse the data within:
+Both the content of your post and its metadata will be written in the same file. That way, the data is centralized and easily accessed. The metadata should occupy the first lines followed by the content. Notice how the metadata is surrounded by dashes "---"; The "gray-matter" package installed earlier will look for these and parse the data within:
 ```js
 // posts/post1.md
 
@@ -100,7 +100,7 @@ How to parse the Markdown will be shown in the next section.
 
 ## Parsing Markdown
 
-To manipulate posts easily, make use of Typescript by creating a new type named "Post".
+Create a new file at the root of your project and name it "blog.ts". Two functions within that file will be written to help us retrieve our posts' data. But first, to manipulate posts easily, make use of Typescript by creating a new type named "Post":
 ```ts
 // blog.ts
 
@@ -112,19 +112,24 @@ export type Post = {
 }
 ```
 
+The first function takes a post's slug as its parameter and returns the post's data. It will be used inside our "/[slug]" page. Also, notice the use of the "gray-matter" package mentionned earlier:
 ```ts
 // blog.ts
 // ...
+
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
 
 const root = process.cwd();
 
 export function getPostBySlug(slug: string) {
     const content = fs.readFileSync(
-        path.join(root, 'blog', 'posts', `${slug}.md`),
+        path.join(root, 'posts', `${slug}.md`),
         'utf8'
     );
 
-    const { data: metadata, content: markdown } = matter(content)
+    const { data: metadata, content: markdown } = matter(content);
 
     return {
         ...metadata,
@@ -134,12 +139,13 @@ export function getPostBySlug(slug: string) {
 }
 ```
 
+This second function, which makes use of the first one, returns all posts present within the posts folder. It will be used inside our "index" page:
 ```ts
 // blog.ts
 // ...
 
 export function getAllPosts() {
-    const folderPath = path.join(root, 'blog', 'posts');
+    const folderPath = path.join(root, 'posts');
 
     if (!fs.existsSync(folderPath))
         return new Array();
