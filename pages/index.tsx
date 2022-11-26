@@ -1,7 +1,7 @@
 import type { GetStaticProps, NextPage } from 'next';
 import Link from 'next/link';
 import Head from 'next/head';
-import { FaEtsy, FaGithub, FaTwitch, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { FaEtsy, FaGithub, FaSuitcase, FaTwitch, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { twMerge } from 'tailwind-merge';
 import { IconType } from 'react-icons';
 import { getAllPosts, Post } from '../blog/blog';
@@ -99,17 +99,85 @@ const Home: NextPage<Props> = ({
             </section>
             <section
                 className="
-                    flex flex-col
-                    gap-16
+                    grid 
+                    grid-cols-1 lg:grid-cols-2
+                    gap-y-20
                     mt-24
                 "
             >
-                {posts.map(post =>
-                    <BlogSummary
-                        key={post.slug}
-                        post={post}
-                    />
-                )}
+                <div
+                    className="
+                        flex flex-col
+                        gap-16
+                    "
+                >
+                    {posts.map(post =>
+                        <BlogSummary
+                            key={post.slug}
+                            post={post}
+                        />
+                    )}
+                </div>
+                <div
+                    className="lg:pl-16 xl:pl-24"
+                >
+                    <div
+                        className="
+                            p-6
+                            border border-zinc-700/40
+                            rounded-2xl
+                        "
+                    >
+                        <h2
+                            className="
+                                flex
+                                text-sm font-semibold
+                            "
+                        >
+                            <FaSuitcase
+                                className="
+                                    w-5 h-5
+                                    text-zinc-600
+                                "
+                            />
+                            <span
+                                className="
+                                    ml-3
+                                    text-zinc-100
+                                "
+                            >
+                                Work
+                            </span>
+                        </h2>
+                        <ol
+                            className="
+                                space-y-4
+                                mt-6
+                            "
+                        >
+                            <CVItem
+                                companyName="CDID"
+                                companyImage="/images/cv-cdid.png"
+                                role="Research and Development"
+                                fromYear={2019}
+                            />
+                            <CVItem
+                                companyName="École de technologie supérieure"
+                                companyImage="/images/cv-ets.png"
+                                role="C# Software Engineer"
+                                fromYear={2014}
+                                toYear={2014}
+                            />
+                            <CVItem
+                                companyName="N'ware Technologies Inc."
+                                companyImage="/images/cv-nware.png"
+                                role="Analyst Programmer"
+                                fromYear={2012}
+                                toYear={2013}
+                            />
+                        </ol>
+                    </div>
+                </div>
             </section>
             </>
     );
@@ -189,3 +257,77 @@ function HeroImage({
         </div>
     );
 }
+
+function CVItem({
+    companyName,
+    companyImage,
+    role,
+    fromYear,
+    toYear
+}: {
+    companyName: string;
+    companyImage: string;
+    role: string;
+    fromYear: number;
+    toYear?: number;
+}) {
+    return (
+        <li
+            className="flex gap-4"
+        >
+            <div
+                className="
+                    flex flex-none items-center justify-center
+                    mt-1
+                    w-10 h-10
+                    border border-zinc-700/50
+                    rounded-full
+                    shadow-md shadow-zinc-800/5
+                    bg-zinc-800
+                "
+            >
+                <img
+                    className="w-7 h-7"
+                    src={companyImage}
+                />
+            </div>
+            <dl
+                className="flex flex-auto flex-wrap"
+            >
+                <dd
+                    className="
+                        w-full
+                        text-sm font-medium text-zinc-100
+                    "
+                >
+                    {companyName}
+                </dd>
+                <dd
+                    className="text-xs text-zinc-400"
+                >
+                    {role}
+                </dd>
+                <dd
+                    className="
+                        ml-auto
+                        text-xs text-zinc-500
+                    "
+                >
+                    <time
+                        dateTime={fromYear.toString()}
+                    >
+                        {fromYear}
+                    </time>
+                    <span>
+                        &nbsp;—&nbsp;
+                    </span>
+                    <time
+                        dateTime={toYear ? toYear.toString() : new Date().getFullYear().toString()}
+                    >
+                        {toYear || 'Present'}
+                    </time>
+                </dd>
+            </dl>
+        </li>
+    );
+};
