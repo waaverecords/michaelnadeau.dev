@@ -1,6 +1,6 @@
 ---
 title: How to build a blog in React and Next.js
-publishedOn: '2022-11-20'
+publishedOn: '2022-12-1'
 ---
 
 While there are many out-of-the-box solutions for blogging, I believe that coding our way to our very own build has many advantages:
@@ -22,7 +22,7 @@ npx create-next-app@latest --typescript
 
 Next, navigate to your newly created project's folder and install a few helpful packages by typing:
 ```
-npm install gray-matter react-code-blocks react-markdown remark-gfm
+npm install gray-matter react-markdown
 ```
 
 Let's now remove most of the boilerplate code the create-next-app script wrote for us. Cleaning the project is the first thing I always do; I do not want to worry about carrying unused code within my commits later on. After the cleanup, your project's folder structure should look something like this:
@@ -53,10 +53,9 @@ export default function App({ Component, pageProps }: AppProps) {
 
 and so does index.tsx:
 ```tsx
-// pages/index.ts
+// pages/index.tsx
 
 export default function Home() {
-    const b = true;
     return null;
 }
 ```
@@ -112,7 +111,7 @@ export type Post = {
 }
 ```
 
-The first function takes a post's slug as its parameter and returns the post's data. It will be used inside our "/[slug]" page. Also, notice the use of the "gray-matter" package mentionned earlier:
+The first function takes a post's slug as its parameter and returns the post's data. It will be used inside our "/[slug]" page. Also, notice the use of the "gray-matter" package mentioned earlier:
 ```ts
 // blog.ts
 // ...
@@ -163,4 +162,95 @@ export function getAllPosts() {
 
     return posts;
 }
+```
+
+Simple, isn't it? Now, you've probably already figured out what's next... js. Get it 🤣? The Next.js part!
+
+## Next.js pages
+
+Here is where you can unleash your creativity to make your blog look and feel awesome. I could rant about what I think is the best CSS framework or give my opinion on which to use: 'flex' vs 'grid' layout; But, that is not the purpose of this post. So, you'll have to be your judge and figure out what to use for styling purposes.
+
+Functionally, though, it is very straightforward. Our index page will list all of our posts' titles whilst we will create a page to show each post's content.
+
+The index page looks something like this:
+```tsx
+// pages/index.tsx
+
+import type { GetStaticProps, NextPage } from 'next';
+import { getAllPosts, Post } from '../blog';
+
+interface Props {
+    posts: Array<Post>;
+}
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+    return {
+        props: {
+            posts: getAllPosts()
+        },
+    }
+}
+
+const Home: NextPage<Props> = ({
+    posts
+}) => {
+    return (<>
+        {posts.map(post =>
+            <a href={`/articles/${post.slug}`}>{post.title}</a>
+        )}
+    </>);
+}
+
+export default Home;
+```
+
+The post's content page uses the "ReactMarkdown" package to turn the Markdown into Html:
+```tsx
+// pages/articles/[slug].tsx
+
+import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
+import { ParsedUrlQuery } from 'querystring';
+import ReactMarkdown from 'react-markdown';
+import { getAllPosts, getPostBySlug, Post } from '../../blog';
+
+interface Query extends ParsedUrlQuery {
+    slug: string
+};
+
+export const getStaticPaths: GetStaticPaths<Query> = async () => {
+    const posts = getAllPosts();
+
+    return {
+        paths: posts.map(post => ({
+            params: {
+                slug: post.slug
+            }
+        })),
+        fallback: false
+    };
+};
+
+export const getStaticProps: GetStaticProps<Post, Query> = async ({ 
+    params
+}) => {
+    return {
+        props: getPostBySlug(params!.slug),
+    }
+}
+
+const BlogSlugPage: NextPage<Post> = ({
+    title,
+    markdown
+}) => {
+    return (<>
+        <div>
+            {title}
+        </div>
+        <ReactMarkdown
+            children={markdown}
+        />
+    </>);
+};
+
+export default BlogSlugPage;
 ```
