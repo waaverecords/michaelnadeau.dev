@@ -254,3 +254,9 @@ const BlogSlugPage: NextPage<Post> = ({
 
 export default BlogSlugPage;
 ```
+
+There you have it: Your content publishing machine. It's now your turn to keep this going. Make changes to this sample application, and too, use it as content for your blog.
+
+Thank you for reading.
+
+~ Michael
