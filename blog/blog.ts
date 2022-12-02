@@ -25,9 +25,10 @@ export function getAllPosts() {
         
         return [
             post,
-            ...posts,
+            ...posts
         ];
     }, new Array<Post>());
+    
     return posts.sort((a, b) => a.publishedOn < b.publishedOn ? 1 : a.publishedOn == b.publishedOn ? 0 : -1);
 };
 
@@ -40,6 +41,6 @@ export function getPostBySlug(slug: string) {
         ...metadata,
         preview: `${markdown.split(' ').slice(0, 24).join(' ')}...`,
         slug: slug,
-        markdown,
+        markdown
     } as Post;
 }
