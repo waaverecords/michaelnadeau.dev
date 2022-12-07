@@ -39,7 +39,7 @@ const Articles: NextPage<Props> = ({
                             text-base
                         "
                     >
-                        Aute excepteur laborum proident duis cupidatat minim adipisicing commodo esse do. Aute quis exercitation reprehenderit incididunt officia culpa.
+                        Or anything that might spark my interest.
                     </p>
                 </div>
             </section>

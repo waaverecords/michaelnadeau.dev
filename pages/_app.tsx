@@ -68,9 +68,9 @@ function MyApp({ Component, pageProps }: AppProps) {
                                 "
                             />
                             <MenuLink
-                                href="/about"
+                                href="/"
                             >
-                                About
+                                Home
                             </MenuLink>
                             <MenuLink
                                 href="/articles"
@@ -125,9 +125,9 @@ function MyApp({ Component, pageProps }: AppProps) {
                             "
                         >
                             <FooterLink
-                                href="/about"
+                                href="/"
                             >
-                                About
+                                Home
                             </FooterLink>
                             <FooterLink
                                 href="/articles"
