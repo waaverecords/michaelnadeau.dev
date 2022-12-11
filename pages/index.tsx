@@ -158,7 +158,7 @@ const Home: NextPage<Props> = ({
                             <CVItem
                                 companyName="CDID"
                                 companyImage="/images/cv-cdid.png"
-                                role="Research and Development"
+                                role="Research and Dev."
                                 fromYear={2019}
                             />
                             <CVItem
