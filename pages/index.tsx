@@ -27,6 +27,7 @@ const Home: NextPage<Props> = ({
         <>
             <Head>
                 <title>Michael Nadeau - Software engineer, maker, and trail runner</title>
+                <meta name="description" content="I'm Michael, a software engineer and outdoor enthusiast based in Saint-Georges. I take on projects which blend art, software, and electronics. I make it a priority to learn something new every day."/>
             </Head>
             <section
                 className="mt-6"
@@ -186,11 +187,11 @@ const Home: NextPage<Props> = ({
 export default Home;
 
 const heroImagePaths = new Array(...[
-    '/images/hero1.jpg',
-    '/images/hero2.jpg',
-    '/images/hero3.jpg',
-    '/images/hero4.jpg',
-    '/images/hero5.jpg',
+    '/images/hero1.webp',
+    '/images/hero2.webp',
+    '/images/hero3.webp',
+    '/images/hero4.webp',
+    '/images/hero5.webp',
 ]);
 
 const heroImageRotations = new Array(...[

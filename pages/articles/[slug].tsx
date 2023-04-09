@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { ParsedUrlQuery } from 'querystring';
 import { FaArrowLeft } from 'react-icons/fa';
 import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm'
+import remarkGfm from 'remark-gfm';
 import { CodeBlock, nord } from 'react-code-blocks';
 import { getAllPosts, getPostBySlug, Post } from '../../blog/blog';
 import H1 from '../../components/h1';
@@ -38,7 +38,8 @@ export const getStaticProps: GetStaticProps<Post, Query> = async ({
 const BlogSlugPage: NextPage<Post> = ({
     title,
     publishedOn,
-    markdown
+    markdown,
+    preview
 })=> {
     const router = useRouter();
 
@@ -51,6 +52,7 @@ const BlogSlugPage: NextPage<Post> = ({
         >
             <Head>
                 <title>{title} - Michael Nadeau</title>
+                <meta name="description" content={preview}/>
             </Head>
             <div
                 className="

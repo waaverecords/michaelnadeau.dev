@@ -26,6 +26,7 @@ const Articles: NextPage<Props> = ({
             >
                 <Head>
                     <title>Articles - Michael Nadeau</title>
+                    <meta name="description" content="Writing on software design, world exploration and solo endeavours or anything that might spark my interest."/>
                 </Head>
                 <div
                     className="max-w-2xl"

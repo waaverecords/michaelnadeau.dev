@@ -87,7 +87,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                         >
                             <a>
                                 <img
-                                    src="/images/profile.jpg"
+                                    src="/images/profile.webp"
                                     className="
                                         inline-block
                                         w-16
