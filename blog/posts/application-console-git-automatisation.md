@@ -7,7 +7,7 @@ On recherche un moyen de faciliter le démarrage ou la continuation d’une tâc
 
 ![init-gft-bt, une application console pour l'automatisation de Git](/images/posts/application-console-git-automatisation/init-gft.png "init-gft-bt, une application console pour l'automatisation de Git")
 
-Première interrogation rencontrée; Comme va-t-on faire pour positionner le gestionnaire de version sur la bonne branche à partir de l’écran d’entré de temps.
+Première interrogation rencontrée; Comment va-t-on faire pour positionner le gestionnaire de version sur la bonne branche à partir de l’écran d’entré de temps.
 
 Première solution envisagée: Un service Windows est installé sur le poste du programmeur. Lorsque celui-ci désire démarrer une tâche, Prextra envoi l'info nécessaire à un serveur qui s’occupe à son tour de relayer cette même info au service Windows sur le poste du programmeur. Cependant, cette solution s’avère complexe; Il existe certainement une solution plus simple.
 
