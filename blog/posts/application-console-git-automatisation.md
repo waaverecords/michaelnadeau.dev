@@ -35,4 +35,4 @@ Comme dernier recourt, on inspecte, à l’aide de Wireshark, les paquets envoy�
 
 Par le passé, on a déjà eu des problèmes quant à l’utilisation de Git lorsque le nom d’un objet diffère en minuscule et majuscule. On porte donc un regard sur le dossier .git. Après regard, il y a effectivement un pépin au niveau des noms de branches. On s’aperçoit que LibGit2Sharp ne gère pas bien les noms de branches. Pour remédier au problème, on adapte le code de l’exécutable pour s’assurer de bien les formater.
 
-Le problème étant régler. La fonctionnalité est déployée en production et est maintenant utilisée par la majorité des programmeurs chez CDID.
+Le problème étant réglé. La fonctionnalité est déployée en production et est maintenant utilisée par la majorité des programmeurs chez CDID.
