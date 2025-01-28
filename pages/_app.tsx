@@ -5,6 +5,7 @@ import Link from 'next/link';
 import '../styles/globals.css';
 import { useRouter } from 'next/router';
 import { twMerge } from 'tailwind-merge';
+import Script from 'next/script';
 
 function MyApp({ Component, pageProps }: AppProps) {
     return (
@@ -26,6 +27,12 @@ function MyApp({ Component, pageProps }: AppProps) {
                 <meta name="msapplication-TileColor" content="#1e1c1f"/>
                 <meta name="theme-color" content="#ffffff"/>
             </Head>
+            <Script 
+                src="https://datafa.st/js/script.js"
+                strategy="afterInteractive"
+                data-website-id="67995d645e57424b227c7d96"
+                data-domain="michaelnadeau.dev"
+            />
             <div
                 className="
                     max-w-[76rem]
