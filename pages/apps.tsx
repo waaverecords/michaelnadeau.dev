@@ -7,15 +7,16 @@ interface Props {
     apps: Array<App>;
 }
 
-type App = {} & (
+type App = {
+    name: string;
+    description: string;
+} & (
     {
         type: 'website';
-        // TODO: declare appropriate properties
+        url: string;
     } | (
         {
             type: 'github';
-            name: string;
-            description: string;
             html_url: string;
             watchers: number;
             forks: number;
@@ -26,14 +27,20 @@ type App = {} & (
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
 
-    const apps = new Array();
+    const apps = new Array<App>();
 
     const gitHubOwner = 'waaverecords';
 
     apps.push(...await Promise.all([
         { 
-            type: 'github',
-            ...await getGitHubStats(gitHubOwner, 'powertoys-run-spotify')
+            type: 'github' as const,
+            ...await getGitHubStats(gitHubOwner, 'powertoys-run-spotify'),
+        },
+        { 
+            type: 'website' as const,
+            name: 'Streamer Emails',
+            description: 'Get Twitch streamer emails tailored to your marketing, filtered by game, followers, and more.',
+            url:'https://streameremails.com',
         }
     ]));
 
@@ -85,7 +92,7 @@ const Apps: NextPage<Props> = (
             </section>
             <section
                 className="
-                    flex flex-col
+                    grid grid-cols-1 lg:grid-cols-2
                     gap-16
                     mt-16 sm:mt-20
                 "
@@ -96,6 +103,9 @@ const Apps: NextPage<Props> = (
                         return (
                             <WebsiteShowcase
                                 key={i}
+                                name={app.name}
+                                description={app.description}
+                                url={app.url}
                             />
                         );
 
