@@ -84,6 +84,11 @@ function MyApp({ Component, pageProps }: AppProps) {
                             >
                                 Articles
                             </MenuLink>
+                            <MenuLink
+                                href="/apps"
+                            >
+                                Apps
+                            </MenuLink>
                         </ul>
                     </nav>
                     <div
@@ -140,6 +145,11 @@ function MyApp({ Component, pageProps }: AppProps) {
                                 href="/articles"
                             >
                                 Articles
+                            </FooterLink>
+                            <FooterLink
+                                href="/apps"
+                            >
+                                Apps
                             </FooterLink>
                         </div>
                         <p
