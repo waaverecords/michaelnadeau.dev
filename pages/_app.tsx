@@ -53,7 +53,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                         className="
                             fixed left-1/2 -translate-x-1/2
                             flex justify-center
-                            z-10
+                            z-30
                         "
                     >
                         <ul
