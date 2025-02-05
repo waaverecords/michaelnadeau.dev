@@ -53,6 +53,7 @@ const Articles: NextPage<Props> = ({
             >
                 {posts.map(post =>
                     <BlogSummary
+                        key={post.slug}
                         post={post}
                     />
                 )}

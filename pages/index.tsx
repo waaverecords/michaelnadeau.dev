@@ -213,6 +213,7 @@ function SocialLink({
     return (
         <Link
             href={href}
+            legacyBehavior
         >
             <a
                 className="

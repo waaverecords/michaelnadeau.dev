@@ -96,6 +96,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                     >
                         <Link
                             href="/"
+                            legacyBehavior
                         >
                             <a>
                                 <img
@@ -182,6 +183,7 @@ function MenuLink({
         <li>
             <Link
                 href={href}
+                legacyBehavior
             >
                 <a
                     className={twMerge(
@@ -224,6 +226,7 @@ function FooterLink({
     return (
         <Link
             href={href}
+            legacyBehavior
         >
             <a
                 className="

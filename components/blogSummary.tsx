@@ -43,6 +43,7 @@ const BlogSummary: FC<BlogSummaryProps> = (
                     />
                 <Link
                     href={`/articles/${post.slug}`}
+                    legacyBehavior
                 >
                     <a>
                         <span 
