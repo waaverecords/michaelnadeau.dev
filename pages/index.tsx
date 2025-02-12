@@ -1,12 +1,13 @@
 import type { GetStaticProps, NextPage } from 'next';
 import Link from 'next/link';
 import Head from 'next/head';
-import { FaEtsy, FaGithub, FaSuitcase, FaTwitch, FaTwitter, FaYoutube } from 'react-icons/fa';
+import { FaEtsy, FaGithub, FaSuitcase, FaTwitch, FaYoutube } from 'react-icons/fa';
 import { twMerge } from 'tailwind-merge';
 import { IconType } from 'react-icons';
 import { getAllPosts, Post } from '../blog/blog';
 import H1 from '../components/h1';
 import BlogSummary from '../components/blogSummary';
+import { FaXTwitter } from 'react-icons/fa6';
 
 interface Props {
     posts: Array<Post>;
@@ -54,8 +55,8 @@ const Home: NextPage<Props> = ({
                         "
                     >
                         <SocialLink
-                            href="https://twitter.com/waaverecords"
-                            icon={FaTwitter}
+                            href="https://x.com/waaverecords"
+                            icon={FaXTwitter}
                         />
                         <SocialLink
                             href="https://github.com/waaverecords"
