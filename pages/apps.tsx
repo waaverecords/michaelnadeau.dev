@@ -1,4 +1,4 @@
-import type { GetServerSideProps, NextPage } from 'next';
+import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 import H1 from '../components/h1';
 import { GitHubShowcase, WebsiteShowcase } from '../components/appShowcase';
@@ -25,7 +25,7 @@ type App = {
     )
 );
 
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
+export const getStaticProps: GetStaticProps<Props> = async () => {
 
     const apps = new Array<App>();
 
@@ -46,8 +46,9 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
 
     return {
         props: {
-            apps
-        }
+            apps,
+        },
+        revalidate: 60 * 60
     };
 };
 
