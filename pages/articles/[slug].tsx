@@ -123,6 +123,22 @@ const BlogSlugPage: NextPage<Post> = ({
                                         theme={customTheme}
                                         language={match ? match[1] : undefined}
                                     />
+                                },
+                                a: ({ href, children }) => {
+                                    var youtubeMatch = href?.match(/^https:\/\/(?:youtu\.be\/|www\.youtube\.com\/watch\?v=)([0-9A-Za-z_-]+)$/);
+                                    if (youtubeMatch && youtubeMatch[1]) {
+                                        const videoId = youtubeMatch[1];
+                                        return <iframe
+                                            src={`https://youtube.com/embed/${videoId}`}
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                            allowFullScreen={true}
+                                            className="w-full aspect-video"
+                                        />;
+                                    }
+
+                                    return <a href={href}>
+                                        {children}
+                                    </a>;
                                 }
                             }}
                         />
