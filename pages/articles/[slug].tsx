@@ -9,6 +9,7 @@ import { CodeBlock, nord } from 'react-code-blocks';
 import { getAllPosts, getPostBySlug, Post } from '../../blog/blog';
 import H1 from '../../components/h1';
 import Time from '../../components/time';
+import React from 'react';
 
 interface Query extends ParsedUrlQuery {
     slug: string
@@ -123,6 +124,26 @@ const BlogSlugPage: NextPage<Post> = ({
                                         theme={customTheme}
                                         language={match ? match[1] : undefined}
                                     />
+                                },
+                                a: ({ href, children }) => {
+                                    const text = React.Children.toArray(children)
+                                        .filter(child => typeof child === 'string')
+                                        .join('');
+                                    
+                                    var youtubeMatch = href?.match(/^https:\/\/(?:youtu\.be\/|www\.youtube\.com\/watch\?v=)([0-9A-Za-z_-]+)$/);
+                                    if (youtubeMatch && youtubeMatch[1] && href === text) {
+                                        const videoId = youtubeMatch[1];
+                                        return <iframe
+                                            src={`https://youtube.com/embed/${videoId}`}
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                            allowFullScreen={true}
+                                            className="w-full aspect-video"
+                                        />;
+                                    }
+
+                                    return <a href={href}>
+                                        {children}
+                                    </a>;
                                 }
                             }}
                         />
