@@ -34,14 +34,18 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
     apps.push(...await Promise.all([
         { 
             type: 'github' as const,
-            ...await getGitHubStats(gitHubOwner, 'powertoys-run-spotify'),
+            ...await getGitHubStats(gitHubOwner, 'PowerToys-Run-Spotify'),
         },
         { 
             type: 'website' as const,
             name: 'Streamer Emails',
             description: 'Get Twitch streamer emails tailored to your marketing, filtered by game, followers, and more.',
             url:'https://streameremails.com',
-        }
+        },
+        { 
+            type: 'github' as const,
+            ...await getGitHubStats(gitHubOwner, 'CmdPalSpotifyExtension'),
+        },
     ]));
 
     return {
