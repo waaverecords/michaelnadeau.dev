@@ -44,7 +44,7 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
         },
         { 
             type: 'github' as const,
-            ...await getGitHubStats(gitHubOwner, 'CmdPalSpotifyExtension'),
+            ...await getGitHubStats(gitHubOwner, 'CmdPal.Ext.Spotify'),
         },
     ]));
 
