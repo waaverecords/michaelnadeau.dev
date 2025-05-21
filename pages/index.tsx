@@ -1,7 +1,7 @@
 import type { GetStaticProps, NextPage } from 'next';
 import Link from 'next/link';
 import Head from 'next/head';
-import { FaEtsy, FaGithub, FaSuitcase, FaTwitch, FaYoutube } from 'react-icons/fa';
+import { FaEtsy, FaGithub, FaStrava, FaSuitcase, FaTwitch, FaYoutube } from 'react-icons/fa';
 import { twMerge } from 'tailwind-merge';
 import { IconType } from 'react-icons';
 import { getAllPosts, Post } from '../blog/blog';
@@ -55,12 +55,16 @@ const Home: NextPage<Props> = ({
                         "
                     >
                         <SocialLink
-                            href="https://x.com/waaverecords"
-                            icon={FaXTwitter}
-                        />
-                        <SocialLink
                             href="https://github.com/waaverecords"
                             icon={FaGithub}
+                        />
+                        <SocialLink
+                            href="https://www.strava.com/athletes/105123788"
+                            icon={FaStrava}
+                        />
+                        <SocialLink
+                            href="https://x.com/waaverecords"
+                            icon={FaXTwitter}
                         />
                         <SocialLink
                             href="https://www.youtube.com/channel/UCi10yZa5xAxsJbGpqCZdlRw"
