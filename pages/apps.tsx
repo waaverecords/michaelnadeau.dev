@@ -46,6 +46,12 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
             type: 'github' as const,
             ...await getGitHubStats(gitHubOwner, 'CmdPal.Ext.Spotify'),
         },
+        {
+            type: 'website' as const,
+            name: 'Stream Nuggets',
+            description:'Bi-weekly newsletter featuring updates, tips, and tools for streamers and content creators.',
+            url: 'https://streamnuggets.com'
+        }
     ]));
 
     return {
