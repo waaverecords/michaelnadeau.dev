@@ -1,7 +1,7 @@
 import type { GetStaticProps, NextPage } from 'next';
 import Link from 'next/link';
 import Head from 'next/head';
-import { FaEtsy, FaGithub, FaStrava, FaSuitcase, FaTwitch, FaYoutube } from 'react-icons/fa';
+import { FaEtsy, FaGithub, FaStrava, FaSuitcase, FaTwitch, FaYoutube, FaMountain } from 'react-icons/fa';
 import { twMerge } from 'tailwind-merge';
 import { IconType } from 'react-icons';
 import { getAllPosts, Post } from '../blog/blog';
@@ -183,9 +183,73 @@ const Home: NextPage<Props> = ({
                             />
                         </ol>
                     </div>
+                    <div
+                        className="
+                            p-6 mt-12
+                            border border-zinc-700/40
+                            rounded-2xl
+                        "
+                    >
+                        <h2
+                            className="
+                                flex
+                                text-sm font-semibold
+                            "
+                        >
+                            {/* <FaMountain
+                                className="
+                                    w-5 h-5
+                                    text-zinc-600
+                                "
+                            /> */}
+                            <span
+                                className="text-zinc-100"
+                            >
+                                Summits
+                            </span>
+                        </h2>
+                        <ol
+                            className="
+                                flex items-baseline justify-between flex-wrap gap-6
+                                mt-4
+                            "
+                        >
+                            {/* <MountainItem 
+                                name="Carstensz Pyramid"
+                                heightPercentageOfEverest={55.2}
+                            /> */}
+                            <MountainItem 
+                                name="Vinson"
+                                heightPercentageOfEverest={55.3}
+                            />
+                            {/* <MountainItem 
+                                name="Elbrus"
+                                heightPercentageOfEverest={63.7}
+                            /> */}
+                            <MountainItem 
+                                name="Kilimanjaro"
+                                heightPercentageOfEverest={66.6}
+                                summited
+                            />
+                            <MountainItem 
+                                name="Denali"
+                                heightPercentageOfEverest={69.9}
+                            />
+                            <MountainItem 
+                                name="Aconcagua"
+                                heightPercentageOfEverest={78.7}
+                                summited
+                            />
+                            <MountainItem 
+                                name="Everest"
+                                heightPercentageOfEverest={100}
+                                iconPaddingTop={3}
+                            />
+                        </ol>
+                    </div>
                 </div>
             </section>
-            </>
+        </>
     );
 }
 
@@ -338,3 +402,42 @@ function CVItem({
         </li>
     );
 };
+
+function MountainItem({
+    name,
+    heightPercentageOfEverest,
+    summited,
+    iconPaddingTop,
+} : {
+    name: string;
+    heightPercentageOfEverest?: number;
+    summited?: boolean;
+    iconPaddingTop?: number;
+}) {
+    const size = 45 * (heightPercentageOfEverest || 50) / 100;
+    return (
+        <div
+            className={twMerge(
+                `
+                    flex flex-col items-center
+                    text-zinc-400/30
+                `,
+                summited && 'text-zinc-400'
+            )}
+        >
+            <FaMountain
+                size={size}
+                style={{
+                    paddingTop: iconPaddingTop,
+                }}
+            />
+            <dl
+                className="text-xs"
+            >
+                <dd>
+                    {name}
+                </dd>
+            </dl>
+        </div>
+    );
+}
