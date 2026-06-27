@@ -13,7 +13,7 @@ type App = {
 } & (
     {
         type: 'website';
-        url: string;
+        url?: string;
     } | (
         {
             type: 'github';
@@ -50,7 +50,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
             type: 'website' as const,
             name: 'Stream Nuggets',
             description:'Bi-weekly newsletter featuring updates, tips, and tools for streamers and content creators.',
-            url: 'https://streamnuggets.com'
         }
     ]));
 

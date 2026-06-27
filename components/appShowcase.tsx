@@ -2,12 +2,13 @@ import { FC, HTMLAttributes } from "react";
 import { GoRepo } from "react-icons/go";
 import { FaRegStar } from "react-icons/fa";
 import { FaCodeFork } from "react-icons/fa6";
+import { ImEarth } from "react-icons/im";
 import { IconBaseProps } from "react-icons";
 
 interface ShowcaseProps {
     name: string;
     description: string;
-    url: string;
+    url?: string;
     icon?: React.ComponentType<IconBaseProps> | React.FC<HTMLAttributes<HTMLImageElement>>;
     children?: React.ReactNode;
 };
@@ -64,7 +65,11 @@ const WebsiteShowcase: FC<WebsiteShowcaseProps> = (props) => {
     return (
         <Showcase
             {...props}
-            icon={(iconProps: HTMLAttributes<HTMLImageElement>) => <img {...iconProps} src={`https://www.google.com/s2/favicons?sz=32&domain=${new URL(props.url).hostname}`} />}
+            icon={
+                props.url ?
+                    (iconProps: HTMLAttributes<HTMLImageElement>) => <img {...iconProps} src={`https://www.google.com/s2/favicons?sz=32&domain=${new URL(props.url || '').hostname}`} />
+                    : undefined
+            }
         />
     );
 };
