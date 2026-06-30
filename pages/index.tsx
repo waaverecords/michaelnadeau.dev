@@ -234,6 +234,7 @@ const Home: NextPage<Props> = ({
                             <MountainItem 
                                 name="Denali"
                                 heightPercentageOfEverest={69.9}
+                                summited
                             />
                             <MountainItem 
                                 name="Aconcagua"
