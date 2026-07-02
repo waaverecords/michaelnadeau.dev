@@ -50,6 +50,12 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
             type: 'website' as const,
             name: 'Stream Nuggets',
             description:'Bi-weekly newsletter featuring updates, tips, and tools for streamers and content creators.',
+        },
+        {
+            type: 'website' as const,
+            name: 'Custom Fan Grill',
+            description: 'Design custom 120mm PC fan grills in your browser.',
+            url: 'https://customfangrill.com',
         }
     ]));
 
